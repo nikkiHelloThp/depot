@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Depot</title>
-    <%= csrf_meta_tags %>
+    <%= csrf_meta_tags %> <!-- prevent CSRF attacks from forms -->
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,6 +10,23 @@
   </head>
 
   <body class="<%= controller.controller_name %>">
-    <%= yield %>
+    <div id="banner">
+      <%= image_tag 'logo.png', alt: 'Depot' %>
+      <span class="title"><%= @page_title %></span>
+    </div>
+    <div id="columns">
+      <div id="side">
+        <ul>
+          <li><a href="http://www....">Home</a></li>
+          <li><a href="http://www..../faq">Questions</a></li>
+          <li><a href="http://www..../news">News</a></li>
+          <li><a href="http://www..../contact">Contact</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <%= yield %>
+      </div>
+    </div>
+
   </body>
 </html>

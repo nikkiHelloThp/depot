@@ -24,3 +24,5 @@ Things you may want to cover:
 * ...
 
 bin/rails db:migrate:redo
+
+use 'git mv filename' properly rename a file
