@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your Pragmatic Catalog</h1>
+<!-- READ ABOUT RUSSIAN DOLL CACHING -->
+<% cache @products do %> <!-- This section will receive the most of the traffic. Important not to send requests to Db for each refreshment especially if product list doesn't change so often -->
+	<% @products.each do |product| %>
+		<% cache product do %> <!-- If a single product changes, request will only fetch that specific product in Db -->
+			<div class="entry">
+				<%= image_tag(product.image_url) %>
+				<h3><%= product.title %></h3>
+				<p><%= sanitize(product.description) %></p> <!-- sanitize() let the description use safely HTML formating elements -->
+				<div class="price_line">
+					<span class="price"><%= number_to_currency(product.price) %></span>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+<% end %>
