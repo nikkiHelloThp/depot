@@ -6,7 +6,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     @update  = {
       title:       'Lorem Ipsum',
       description: 'Wibbles are fun!',
-      image_url:   'lorem.jpg',
+      image_url:   'iPhoneSE.jpeg',
       price:        19.95
     }
   end
