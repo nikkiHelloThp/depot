@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  fixtures :products
+  
   test "should not save product without title" do
   	product = Product.new
     assert product.invalid?

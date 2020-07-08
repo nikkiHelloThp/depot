@@ -1,0 +1,26 @@
+<div class="depot_form">
+	<% if flash[:alert] %>
+		<p id="notice"><%= flash[:alert] %></p>
+	<% end %>
+
+	<%= form_with do |form| %>
+
+		<fieldset>
+			<legend>Please Log In</legend>
+
+	    <div>
+	      <%= form.label :name, 'Name:' %>
+	      <%= form.text_field :name %>
+	    </div>
+
+	    <div>
+	      <%= form.label :password, 'Password' %>
+	      <%= form.password_field :password %>
+	    </div>
+
+	    <div>
+	    	<%= form.submit "Login" %>
+	    </div>
+		</fieldset>
+	<% end %>
+</div>
